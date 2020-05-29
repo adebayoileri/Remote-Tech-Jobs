@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "client": "cd client && yarn run start",
+    "start": "node app.js",
+    "start:dev": "nodemon  app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +19,12 @@
   "bugs": {
     "url": "https://github.com/adebayoileri/remotedev.app/issues"
   },
-  "homepage": "https://github.com/adebayoileri/remotedev.app#readme"
+  "homepage": "https://github.com/adebayoileri/remotedev.app#readme",
+  "dependencies": {
+    "cron": "^1.8.2",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.4",
+    "redis": "^3.0.2"
+  }
 }
