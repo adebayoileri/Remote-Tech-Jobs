@@ -1,46 +1,28 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {
     Typography,
     Button
 } from "@material-ui/core"
-const jobs = [
-    {
-        "id": 1,
-        "title" :"FullStack developer",
-        "Salary":"N3000",
-        "location": "Remote"
-    },
-    {
-        "id": 2,
-        "title" :" Laravel developer",
-        "Salary":"N32000",
-        "location": "Remote"
-    },
-    {
-        "id": 3,
-        "title" :"Frontend developer",
-        "Salary":"N4000",
-        "location": "Remote"
-    }
-]
+import '../App.css';
+
+async function getRemoteJobs(callBack){
+    const res = await fetch('http://localhost:3200/jobs/remote');
+    const data = await res.json()
+    // console.log({data})
+    callBack(data);
+}
+
 
 export default function Job() {
+    const [jobs, updateJobs] = useState([])
+    useEffect(()=>{
+        getRemoteJobs(updateJobs)
+    },[])
     return (
         <div>
             {
                 jobs && jobs.map((job)=>(
-                <div key={job.id} style={{
-                    display:"flex",
-                    flexDirection: "row",
-                    alignSelf: "auto",
-                    alignItems: "stretch",
-                    flexWrap: "wrap",
-                    padding: "25px",
-                    margin: "auto",
-                    marginBottom: "15px",
-                    width: "75%",
-                    border: "2px solid blue"
-                }}>
+                <div key={job.id} className="job">
                     <Typography variant="h6">{job.title}</Typography>
                 </div>
                 )) 

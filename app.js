@@ -14,9 +14,9 @@ const getAsync = promisify(client.get).bind(client);
 
 
 app.get('/jobs/remote',async (req, res, next) => {
-
+res.header('Access-Control-Allow-Origin', 'http://localhost:3000')
 const jobs = await getAsync('remotejobs');
-res.status(200).send(jobs)
+return res.status(200).send(jobs)
 })
 
 const PORT = process.env.PORT || 3200; 

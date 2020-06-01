@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.job{
+  display:flex;
+  flex-direction: row;
+  align-self: auto;
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding: 25px;
+  margin: auto;
+  margin-bottom: 15px;
+  width: 75%;
+  box-shadow: 5px 10px rgba(132, 141, 132, 0.3);
+  border-left: 3px solid blue;
+  border-radius: 6px  0  0 6px;
+}
