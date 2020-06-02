@@ -1,3 +1,7 @@
+*{
+  margin:0;
+  padding:0;
+}
 .App {
   text-align: center;
 }
@@ -36,6 +40,19 @@
     transform: rotate(360deg);
   }
 }
+.section-1{
+  /* margin-top: 0; */
+  width: 100%;
+ background: url('https://images.unsplash.com/photo-1580752300969-1ceaaa1f3039?ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80'); 
+  background-position: center;
+  height: 55vh;
+}
+.section-1-content{
+  margin-top: 0;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+}
 
 .job{
   display:flex;
@@ -45,6 +62,7 @@
   flex-wrap: wrap;
   padding: 25px;
   margin: auto;
+  margin-top: 15px;
   margin-bottom: 15px;
   width: 75%;
   box-shadow: 5px 10px rgba(132, 141, 132, 0.3);

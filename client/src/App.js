@@ -4,10 +4,15 @@ import Jobs from "./components/Jobs"
 
 function App() {
   return (
-    <div className="App">
-    <h1>Dev jobs</h1>
+<>
+<div className="section-1">
+  <div className="section-1-content">
+    <h1>Remote Developer Jobs</h1>
+  </div>
+</div>
+    {/* <h1>Dev jobs</h1> */}
     <Jobs />
-    </div>
+  </>
   );
 }
 

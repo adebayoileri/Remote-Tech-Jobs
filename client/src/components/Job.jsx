@@ -19,14 +19,16 @@ export default function Job() {
         getRemoteJobs(updateJobs)
     },[])
     return (
-        <div>
+        <>
             {
                 jobs && jobs.map((job)=>(
                 <div key={job.id} className="job">
                     <Typography variant="h6">{job.title}</Typography>
+                    <Typography >{job.salary}</Typography>
+                    <Typography variant="">{job.candidate_required_location}</Typography>
                 </div>
                 )) 
             }  
-        </div>
+         </>
     )
 }
