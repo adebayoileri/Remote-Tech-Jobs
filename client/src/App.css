@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 *{
   margin:0;
   padding:0;
+}
+body{
+  font-family: 'Lato', sans-serif;
+  background-color: #fafbfe;
 }
 .App {
   text-align: center;
@@ -40,32 +45,40 @@
     transform: rotate(360deg);
   }
 }
+/* .remote-text{
+  margin-top: 1em;
+} */
 .section-1{
   /* margin-top: 0; */
   width: 100%;
  background: url('https://images.unsplash.com/photo-1580752300969-1ceaaa1f3039?ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80'); 
   background-position: center;
-  height: 55vh;
+  height: 40vh;
 }
 .section-1-content{
   margin-top: 0;
-  font-size: 40px;
+  font-size: 1.2em;
   color: white;
   text-align: center;
 }
-
-.job{
+.jobs{
   display:flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+}
+.job{
+  flex-direction: column;
   align-self: auto;
   align-items: stretch;
-  flex-wrap: wrap;
   padding: 25px;
   margin: auto;
   margin-top: 15px;
   margin-bottom: 15px;
-  width: 75%;
-  box-shadow: 5px 10px rgba(132, 141, 132, 0.3);
-  border-left: 3px solid blue;
+  width: 320px;
   border-radius: 6px  0  0 6px;
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+  border-left: 3px solid rgb(243, 37, 37);
 }
+/* .job:hover{
+
+} */

@@ -1,9 +1,15 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react';
+import Moment from 'react-moment';
 import {
     Typography,
     Button
-} from "@material-ui/core"
+} from "@material-ui/core";
+import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import BusinessIcon from '@material-ui/icons/Business';
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import '../App.css';
+
 
 async function getRemoteJobs(callBack){
     const res = await fetch('http://localhost:3200/jobs/remote');
@@ -20,15 +26,24 @@ export default function Job() {
     },[])
     return (
         <>
+            <div style={{ textAlign:"center", marginTop:"1em" }}>
+            <Typography variant="h4" component="h1">Latest jobs: {jobs.length} found</Typography>
+            </div>
+            <div className="jobs">
             {
                 jobs && jobs.map((job)=>(
                 <div key={job.id} className="job">
-                    <Typography variant="h6">{job.title}</Typography>
-                    <Typography >{job.salary}</Typography>
-                    <Typography variant="">{job.candidate_required_location}</Typography>
+                  <Typography variant="h6"> <WorkOutlineIcon />  {job.title}</Typography>
+                  <Typography><BusinessIcon/> {job.company_name}</Typography>
+                  { job.salary ? 
+                    <Typography ><MonetizationOnIcon/>{ job.salary} </Typography> : " "
+                  }
+                    <Typography ><LocationOnIcon/> {job.candidate_required_location}</Typography>
+                    <Typography>Posted: <Moment fromNow>{job.publication_date}</Moment></Typography>
                 </div>
                 )) 
-            }  
-         </>
+            } 
+            </div>
+           </>  
     )
 }
