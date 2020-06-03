@@ -9,13 +9,13 @@ const path = require('path')
 const getAsync = promisify(client.get).bind(client);
 
 app.use(cors())
-// app.use(express.static('public'));
+app.use(express.static('public'));
 
 
-// app.get('*',(req, res)=>{
-//     res.sendFile(path.resolve(__dirname, 'public', 'index.html'
-//     ))
-// })
+app.get('*',(req, res)=>{
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'
+    ))
+})
 
 
 app.get('/jobs/remote',async (req, res, next) => {
