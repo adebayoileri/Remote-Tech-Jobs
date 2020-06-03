@@ -79,6 +79,10 @@ body{
   box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
   border-left: 3px solid rgb(243, 37, 37);
 }
-/* .job:hover{
+.action-button{
+  display: none;
+}
 
-} */
+.job:hover .action-button{
+    display: flex;
+  }

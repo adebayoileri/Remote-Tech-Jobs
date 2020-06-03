@@ -40,6 +40,10 @@ export default function Job() {
                   }
                     <Typography ><LocationOnIcon/> {job.candidate_required_location}</Typography>
                     <Typography>Posted: <Moment fromNow>{job.publication_date}</Moment></Typography>
+                    <div className="action-button"> 
+                    <Button style={{backgroundColor:"rgb(243, 37, 37)"}} >Apply</Button>
+                    <Button style={{backgroundColor:"dodgerblue"}} >Save</Button>
+                    </div>
                 </div>
                 )) 
             } 
