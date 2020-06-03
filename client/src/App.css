@@ -85,4 +85,6 @@ body{
 
 .job:hover .action-button{
     display: flex;
+    color: #ffff;
+    /* padding: 8px; */
   }

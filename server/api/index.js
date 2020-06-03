@@ -33,7 +33,7 @@ async function getRemoteJobs(){
   })
 //   console.log('found', remoteJobs.length, "jobs");
   const storedJobs =  await setAsync('remotejobs', JSON.stringify(remoteJobs))
-  console.log(storedJobs)
+  // console.log(storedJobs)
 }
 getRemoteJobs()
 

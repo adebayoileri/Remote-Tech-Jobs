@@ -8,11 +8,13 @@ import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import BusinessIcon from '@material-ui/icons/Business';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import { apiBase } from '../util';
 import '../App.css';
 
 
+
 async function getRemoteJobs(callBack){
-    const res = await fetch('http://localhost:3200/jobs/remote');
+    const res = await fetch(`${apiBase}jobs/remote`);
     const data = await res.json()
     // console.log({data})
     callBack(data);
@@ -41,8 +43,8 @@ export default function Job() {
                     <Typography ><LocationOnIcon/> {job.candidate_required_location}</Typography>
                     <Typography>Posted: <Moment fromNow>{job.publication_date}</Moment></Typography>
                     <div className="action-button"> 
-                    <Button style={{backgroundColor:"rgb(243, 37, 37)"}} >Apply</Button>
-                    <Button style={{backgroundColor:"dodgerblue"}} >Save</Button>
+                    <Button style={{backgroundColor:"rgb(243, 37, 37)", color: "#ffff", margin: "8px"}} >Apply</Button>
+                    <Button style={{backgroundColor:"dodgerblue", color: "#ffff", margin: "8px"}} >Save</Button>
                     </div>
                 </div>
                 )) 
