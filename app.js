@@ -1,7 +1,23 @@
 const express =  require('express')
 const app = express()
 const redis = require("redis");
-const client = redis.createClient();
+// if(process.env.REDIS_URL){
+//     try {     
+//       var rtg   = require("url").parse(process.env.REDIS_URL);
+//       var client = require("redis").createClient(rtg.port, rtg.hostname);
+//       client.auth(rtg.auth.split(":")[1])
+//     } catch (error) {
+//       console.log(error)
+//     }
+//     }else{
+    //     }
+        // var client = redis.createClient();
+var client = require("redis").createClient({
+    port: 17259,  
+    host:'redis-17259.c114.us-east-1-4.ec2.cloud.redislabs.com',
+    password:'br1Glbw8SqfDh4PgP9G0PlklNMUz4gO9',
+  });
+
 const { promisify } = require("util");
 const cors = require('cors');
 const path = require('path')

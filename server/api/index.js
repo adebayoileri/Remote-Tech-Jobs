@@ -1,9 +1,17 @@
 // import { response } from 'express';
 
 const fetch = require('node-fetch')
-const redis = require("redis");
-const client = redis.createClient();
-
+// const redis = require("redis");
+// if(process.env.REDIS_URL){
+    // var client = require("redis").createClient();
+  // }else{
+  // var client = redis.createClient();
+  // }
+  var client = require("redis").createClient({
+    port: 17259,  
+    host:'redis-17259.c114.us-east-1-4.ec2.cloud.redislabs.com',
+    password:'br1Glbw8SqfDh4PgP9G0PlklNMUz4gO9',
+  });
 const { promisify } = require("util");
 // const getAsync = promisify(client.get).bind(client);
 
@@ -33,7 +41,7 @@ async function getRemoteJobs(){
   })
 //   console.log('found', remoteJobs.length, "jobs");
   const storedJobs =  await setAsync('remotejobs', JSON.stringify(remoteJobs))
-  // console.log(storedJobs)
+  console.log(storedJobs)
 }
 getRemoteJobs()
 
