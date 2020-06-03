@@ -1,29 +1,23 @@
 // import { response } from 'express';
 
 const fetch = require('node-fetch')
-// const redis = require("redis");
-// if(process.env.REDIS_URL){
-    // var client = require("redis").createClient();
-  // }else{
-  // var client = redis.createClient();
-  // }
-  var client = require("redis").createClient({
-    port: 17259,  
-    host:'redis-17259.c114.us-east-1-4.ec2.cloud.redislabs.com',
-    password:'br1Glbw8SqfDh4PgP9G0PlklNMUz4gO9',
-  });
+
+const client = require('redis').createClient(
+  process.env.REDIS_PORT,
+ process.env.REDIS_HOST
+);
+client.auth(process.env.REDIS_PASSWORD);
 const { promisify } = require("util");
-// const getAsync = promisify(client.get).bind(client);
 
-// getAsync.then(console.log).catch(console.error);
-const setAsync = promisify(client.set).bind(client);
+const setAsync = promisify(client.set).bind(client)
 
-// client.on("error", function(error) {
-//   console.error(error);
-// });
+client.on('connect', function() {
+  console.log('Connected to Redis');
+});
+client.on("error", function(error) {
+  console.error(error);
+});
 
-// client.set("key", "value", redis.print);
-// client.get("key", redis.print);
 
 const JOBS_URL =  "https://remotive.io/api/remote-jobs";
 async function getRemoteJobs(){

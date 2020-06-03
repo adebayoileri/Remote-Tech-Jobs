@@ -1,22 +1,11 @@
 const express =  require('express')
 const app = express()
 const redis = require("redis");
-// if(process.env.REDIS_URL){
-//     try {     
-//       var rtg   = require("url").parse(process.env.REDIS_URL);
-//       var client = require("redis").createClient(rtg.port, rtg.hostname);
-//       client.auth(rtg.auth.split(":")[1])
-//     } catch (error) {
-//       console.log(error)
-//     }
-//     }else{
-    //     }
-        // var client = redis.createClient();
-var client = require("redis").createClient({
-    port: 17259,  
-    host:'redis-17259.c114.us-east-1-4.ec2.cloud.redislabs.com',
-    password:'br1Glbw8SqfDh4PgP9G0PlklNMUz4gO9',
-  });
+
+  const client = require('redis').createClient(
+    process.env.REDIS_PORT,
+    process.env.REDIS_HOST
+  );
 
 const { promisify } = require("util");
 const cors = require('cors');
@@ -28,10 +17,10 @@ app.use(cors())
 app.use(express.static('public'));
 
 
-app.get('*',(req, res)=>{
-    res.sendFile(path.resolve(__dirname, 'public', 'index.html'
-    ))
-})
+// app.get('*',(req, res)=>{
+//     res.sendFile(path.resolve(__dirname, 'public', 'index.html'
+//     ))
+// })
 
 
 app.get('/jobs/remote',async (req, res, next) => {
