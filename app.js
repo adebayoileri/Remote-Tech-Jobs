@@ -6,6 +6,7 @@ const redis = require("redis");
     process.env.REDIS_PORT,
     process.env.REDIS_HOST
   );
+  client.auth('br1Glbw8SqfDh4PgP9G0PlklNMUz4gO9');
 
 const { promisify } = require("util");
 const cors = require('cors');
