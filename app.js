@@ -2,11 +2,22 @@ const express =  require('express')
 const app = express()
 const redis = require("redis");
 
-  const client = require('redis').createClient(
+let client 
+if(process.env === 'production'){
+   client = redis.createClient(
     process.env.REDIS_PORT,
     process.env.REDIS_HOST
   );
   client.auth('br1Glbw8SqfDh4PgP9G0PlklNMUz4gO9');
+}else{
+  client = redis.createClient();
+}
+client.on('connect', function() {
+  console.log('Connected to Redis');
+});
+client.on("error", function(error) {
+  console.error(error);
+});
 
 const { promisify } = require("util");
 const cors = require('cors');

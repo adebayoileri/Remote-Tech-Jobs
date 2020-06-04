@@ -1,12 +1,18 @@
 // import { response } from 'express';
 
 const fetch = require('node-fetch')
+const redis =  require('redis')
 
-const client = require('redis').createClient(
-  process.env.REDIS_PORT,
- process.env.REDIS_HOST
-);
-client.auth(process.env.REDIS_PASSWORD);
+let client
+if(process.env === 'production'){
+ client = redis.createClient(
+    process.env.REDIS_PORT,
+    process.env.REDIS_HOST
+  );
+  client.auth('br1Glbw8SqfDh4PgP9G0PlklNMUz4gO9');
+}else{
+ client = redis.createClient();
+}
 const { promisify } = require("util");
 
 const setAsync = promisify(client.set).bind(client)

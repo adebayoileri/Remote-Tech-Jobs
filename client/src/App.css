@@ -88,3 +88,9 @@ body{
     color: #ffff;
     /* padding: 8px; */
   }
+
+  .paginate{
+   margin: auto;
+   margin-left: 22.5%;
+   margin-bottom: 15px;
+  }
