@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { useHistory as history } from 'react-router-dom';
 import Moment from 'react-moment';
 import {
     Typography,
@@ -66,7 +67,9 @@ export default function Job() {
                     <Typography ><LocationOnIcon/> {job.candidate_required_location}</Typography>
                     <Typography>Posted: <Moment fromNow>{job.publication_date}</Moment></Typography>
                     <div className="action-button"> 
-                    <Button style={{backgroundColor:"rgb(243, 37, 37)", color: "#ffff", margin: "8px"}} >Apply</Button>
+                    <Button onClick={() => (
+                      window.location.href = job.url
+                    )} style={{backgroundColor:"rgb(243, 37, 37)", color: "#ffff", margin: "8px"}} >Apply</Button>
                     <Button style={{backgroundColor:"dodgerblue", color: "#ffff", margin: "8px"}} >Save</Button>
                     </div>
                 </div>
