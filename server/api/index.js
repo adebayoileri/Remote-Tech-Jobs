@@ -4,7 +4,7 @@ const fetch = require('node-fetch')
 const redis =  require('redis')
 
 let client
-if(process.env === 'production'){
+if(process.env.NODE_ENV === 'production'){
  client = redis.createClient(
     process.env.REDIS_PORT,
     process.env.REDIS_HOST
